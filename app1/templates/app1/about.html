@@ -1,0 +1,26 @@
+{% extends 'app1/base.html' %}
+
+{% block content %}
+  {% load static %}
+
+
+  <!-- Page Content -->
+  <header class="jumbotron my-4">
+    <h2 class="display-4" style="margin-top:50px">AWPS - Amazon wildfire prediction system</h2>
+    <p class="lead">This project was design for Machine Learning class at la Universidad de los Andes in Colombia.
+    Three machine learning models were trained using fire data from NASA's VRII satelite system,
+    (resolution 375m) and meteorolical data from NASA's Global FWI. It aims to predict burnt area
+    based on weather and dryness index.</p>
+  </header>
+
+  <!-- Page Features -->
+  <div class="text-center">
+    <h4>Team Members</h4>
+    <div class="row align-items-center" style="vertical-align:middle">
+      <div class="col">Philipp Ulm</<div>
+      <div class="col">Harold Castillo</<div>
+      <div class="col">Andrea Parra</<div>
+    </div>
+  </div>
+
+{% endblock %}

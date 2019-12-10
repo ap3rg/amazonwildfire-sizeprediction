@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  {% load static %}
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Amazon Wildfire Prediction System</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'app1/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous"
+  />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'app1/css/style.css' %}" rel="stylesheet">
+
+  <!-- Add Favicon to page -->
+  <link rel="icon" href="{% static 'app1/img/favicon.ico' %}" type="image/x-icon">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <!-- D3 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+
+  <!-- Ajax -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3-queue/3.0.4/d3-queue.min.js"></script>
+
+  <!-- JQuery -->
+  <!-- <script type="text/javascript" src="{% static 'app1/js/jquery.slim.min.js' %}"></script> -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <!-- Bootstrap tooltips JS -->
+  <script type="text/javascript" src="{% static 'app1/js/popper.min.js' %}"></script>
+
+  <!-- Bootstrap core JS -->
+  <script type="text/javascript" src="{% static 'app1/js/bootstrap.min.js' %}"></script>
+
+  <!-- Charts.js -->
+  <script src="{% static 'app1/js/node_modules/chart.js/dist/Chart.js' %}"></script>
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <img class="navbar-brand" width="65" height="75" src="{% static 'app1/img/favicon.png' %}" alt="">
+      <a class="navbar-brand" href="{% url 'app1:index' %}">Amazon Wildfire Prediction System</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'app1:index' %}">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'app1:about' %}">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  {% block content %}
+  {% endblock %}
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <!-- <div class="row" style="justify-content:center">
+          <a class="btn" href="https://www.facebook.com/tembloresong/"><i class="fa fa-facebook-square" style="font-size:48px;color:white"></i></a>
+          <a class="btn" href="https://twitter.com/tembloresong?lang=en"><i class="fa fa-twitter-square" style="font-size:48px;color:white"></i></a>
+          <a class="btn" href="https://www.instagram.com/tembloresong/"><i class="fa fa-instagram" style="font-size:48px;color:white"></i></a>
+      </div> -->
+      <p class="m-0 text-center text-white">Copyright &copy; AWPS 2019</p>
+      <p class="m-0 text-center text-white"><b>Sources:</b> Global Fire WEather Database (GFWED).
+        VIIRS I Band 375 m Active Fire locations NRT (Vector data) distributed by LANCE FIRMS.
+        We acknowledge the use of data products or imagery from the Land, Atmosphere Near real-time Capability for EOS (LANCE) system operated by NASA's Earth Science Data and Information System (ESDIS) with funding provided by NASA Headquarters.</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'app1/js/jquery.min.js' %}"></script>
+  <script src="{% static 'app1/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+</html>

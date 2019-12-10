@@ -1,0 +1,115 @@
+{% extends 'app1/base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+
+<!-- CSS for this view -->
+<!-- <link rel="stylesheet" src="{% static 'app1/css/vis1.css' %}"> -->
+<style>
+  body {
+    margin: 0;
+    background-color: #FFFFF;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: 200;
+    font-size: 17px;
+  }
+  #map-holder {
+    margin-left: 100px;
+    width: 100vw;
+    height: 100vh;
+  }
+  .frame {
+
+    fill: rgba(188, 251, 212, 0);   /* map background colour */
+    stroke: rgba(54, 203, 188, 1);
+    stroke-width: 3;
+  }
+  .country{
+    stroke: #F25E5E;   /* country colour */
+    fill: rgba(188, 251, 212, .4); /* country border colour */
+    stroke-width: 1.5; /* country border width */
+  }
+
+  .bargraph {
+    fill: rgba(188, 251, 212, .8);   /* map background colour */
+    /* stroke: rgba(54, 203, 188, 1);
+    stroke-width: 3; */
+  }
+
+  .clicked {
+    fill: #F25E5E;   /* map background colour */
+    /* stroke: rgba(54, 203, 188, 1);
+    stroke-width: 3; */
+  }
+
+  .amazon{
+    stroke: #008E36;   /* country colour */
+    fill: #008E36; /* country border colour */
+    stroke-width: 1.5; /* country border width */
+  }
+
+  .fire {
+    fill: rgba(255, 193, 0, 0.7);
+  }
+
+  .fire-core {
+    fill: #DD1302;
+  }
+
+  .country-on{
+    fill: #4B5358;   /* highlight colour for selected country */
+  }
+  .countryLabel{
+    display: none;   /* hide all country labels by default */
+  }
+  .countryName{
+    fill: #FFFAFF;   /* country label text colour */
+  }
+  .countryLabelBg{
+    fill: #EAE8E8;   /* country label background colour */
+  }
+
+  .totals {
+    fill: grey;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  }
+
+  .coords {
+    margin-left: 100px;
+    stroke: none;
+    fill: #8DBD0C;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+ }
+</style>
+
+<div class="container">
+
+  <!-- Jumbotron Header -->
+  <header class="jumbotron my-4">
+    <h2 class="display-4" style="margin-top:50px">Visualization of historical fire data.</h2>
+    <h4 class="lead"> Data between <b>January 2017</b> and <b>November 2019</b>. </h4>
+    <p class="lead"></p>
+  </header>
+
+</div>
+  <dataM data="{{ months }}"></dataM>
+  <dataF data="{{ fires }}"></dataF>
+
+  <!-- Page Features -->
+
+  <div class="row" style="justify-content:center">
+    <div class="col-md-6" >
+      <div id="lat-lon" style="color:#4B4B4B"></div>
+      <div id="map-holder" style="margin-bottom:50px"></div>
+    </div>
+    <div class="col-md-4" id="selector_chart">
+    </div>
+  </div>
+
+
+
+<script src="{% static 'app1/js/vis1.js' %}"></script>
+
+{% endblock %}

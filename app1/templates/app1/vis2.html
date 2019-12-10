@@ -1,0 +1,109 @@
+{% extends 'app1/base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+
+<!-- CSS for this view -->
+<!-- <link rel="stylesheet" src="{% static 'app1/css/vis1.css' %}"> -->
+<style>
+  body {
+    margin: 0;
+    background-color: #FFFFF;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: 200;
+    font-size: 17px;
+  }
+  #map-holder {
+    margin-left: 100px;
+    width: 100vw;
+    height: 100vh;
+  }
+  svg rect {
+
+    fill: rgba(188, 251, 212, 0);   /* map background colour */
+    stroke: rgba(54, 203, 188, 1);
+    stroke-width: 3;
+  }
+  .country{
+    stroke: #F25E5E;   /* country colour */
+    fill: rgba(188, 251, 212, .4); /* country border colour */
+    stroke-width: 1.5; /* country border width */
+  }
+
+  .amazon{
+    stroke: #008E36;   /* country colour */
+    fill: #008E36; /* country border colour */
+    stroke-width: 1.5; /* country border width */
+  }
+
+  .country-on{
+    fill: #4B5358;   /* highlight colour for selected country */
+  }
+  .countryLabel{
+    display: none;   /* hide all country labels by default */
+  }
+  .countryName{
+    fill: #FFFAFF;   /* country label text colour */
+  }
+  .countryLabelBg{
+    fill: #EAE8E8;   /* country label background colour */
+  }
+
+  .fire {
+    fill: rgba(255, 193, 0, 0.7);
+  }
+
+  .coords {
+    margin-left: 100px;
+    stroke: none;
+    fill: #8DBD0C;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+ }
+</style>
+
+<div class="container">
+
+  <!-- Jumbotron Header -->
+  <header class="jumbotron my-4">
+    <h2 class="display-4" style="margin-top:50px">Realtime wildfire area prediction</h2>
+    <h4 class="lead"> Run model by selecting a location on the map.</h4>
+    <p class="lead"></p>
+  </header>
+
+</div>
+  <data data="{{ index }}"></data>
+  <dataW data="{{ weather }}"></dataW>
+
+  <!-- Page Features -->
+
+  <div class="row" style="justify-content:center">
+    <div class="row container" id="model_selector" style="justify-content:center">
+      <div class="col-5" style="justify-content:center" >
+        <input type="radio" name="model" value='weather'/> SVM - weather
+      </div>
+      <div class="col-5" style="justify-content:center" >
+        <input type="radio" name="model" value='no-weather'/> SVM - no-weather
+        </div>
+    </div>
+    <div class="col-md-6" >
+      <div id="lat-lon" style="color:#4B4B4B"></div>
+      <div id="map-holder" style="margin-bottom:50px"></div>
+    </div>
+    <div class="col-md-4" style="margin-top:100px">
+      <p id="lat"><b>Latitude:</b></p>
+      <p id="lon"><b>Longitude:</b></p>
+      <p id="fwi"><b>FWI:</b></p>
+      <p id="ffmc"><b>FFMC:</b></p>
+      <p id="dmc"><b>DMC:</b></p>
+      <p id="dc"><b>DC:</b></p>
+      <p id="isi"><b>ISI:</b></p>
+      <p id="area"><b>Predicted Area:</b></p>
+    </div>
+  </div>
+
+
+<script src="{% static 'app1/js/vis2.js' %}"></script>
+
+{% endblock %}
